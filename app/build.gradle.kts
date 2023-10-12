@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -51,6 +54,12 @@ dependencies {
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.17")
     //glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
+
+    //videoModel mvvm
+    var lifecycleVersion = "2.4.0-rc01"
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+
 
 
     implementation("androidx.core:core-ktx:1.9.0")
