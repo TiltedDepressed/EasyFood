@@ -5,4 +5,7 @@
     <color name="primary">#f52c56</color>
     <color name="accent">#f52c56</color>
     <color name="g_black">#33405f</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="cerulean">#0492C2</color>
+    <color name="deepSkyBlue">#00BFFF</color>
 </resources>
