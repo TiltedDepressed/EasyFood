@@ -15,8 +15,8 @@ import com.example.easyfood.activities.MealActivity
 import com.example.easyfood.adapters.CategoriesAdapter
 import com.example.easyfood.adapters.MostPopularAdapter
 import com.example.easyfood.databinding.FragmentHomeBinding
-import com.example.easyfood.pojo.Meal
-import com.example.easyfood.pojo.MealsByCategory
+import com.example.easyfood.model.Meal
+import com.example.easyfood.model.MealsByCategory
 import com.example.easyfood.viewModel.HomeViewModel
 
 class HomeFragment : Fragment() {

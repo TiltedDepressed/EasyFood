@@ -3,17 +3,19 @@ package com.example.easyfood.activities
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.easyfood.R
 import com.example.easyfood.databinding.ActivityMealBinding
+import com.example.easyfood.db.MealDatabase
 import com.example.easyfood.fragments.HomeFragment
-import com.example.easyfood.pojo.Meal
+import com.example.easyfood.model.Meal
 import com.example.easyfood.viewModel.MealViewModel
+import com.example.easyfood.viewModel.MealViewModelFactory
 
 class MealActivity : AppCompatActivity() {
     private lateinit var mealId : String
@@ -29,7 +31,10 @@ class MealActivity : AppCompatActivity() {
         binding = ActivityMealBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mealMvvm = ViewModelProvider(this)[MealViewModel::class.java]
+
+        val mealDatabase = MealDatabase.getInstance(this)
+        val viewModelFactory = MealViewModelFactory(mealDatabase)
+        mealMvvm = ViewModelProvider(this,viewModelFactory)[MealViewModel::class.java]
 
         getMealInformationFromIntent()
         setInformationInViews()
@@ -38,7 +43,11 @@ class MealActivity : AppCompatActivity() {
         mealMvvm.getMealDetail(mealId)
         observeMealDetailsLiveData()
         onYouTubeImageClick()
+
+
     }
+
+
 
     private fun onYouTubeImageClick() {
         binding.imageYouTube.setOnClickListener{
@@ -46,16 +55,17 @@ class MealActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
+    private var mealToSave:Meal?=null
     private fun observeMealDetailsLiveData() {
         mealMvvm.observerMealDetailsLiveData().observe(this,object:Observer<Meal>{
-            override fun onChanged(t: Meal?) {
+            override fun onChanged(value: Meal) {
+                mealToSave = value
                 onResponseCase()
-                binding.categoryTextView.text = "Category : ${t!!.strCategory}"
-                binding.areaTextView.text = "Area : ${t!!.strArea}"
-                binding.instructionsDescriptionTextView.text = t.strInstructions
+                binding.categoryTextView.text = "Category : ${value!!.strCategory}"
+                binding.areaTextView.text = "Area : ${value!!.strArea}"
+                binding.instructionsDescriptionTextView.text = value.strInstructions
 
-                linkYouTube = t.strYoutube
+                linkYouTube = value.strYoutube.toString()
             }
 
         })

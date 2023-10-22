@@ -1,5 +1,6 @@
 package com.example.easyfood.activities
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -18,6 +19,7 @@ class CategoryMealsActivity : AppCompatActivity() {
     lateinit var categoryMealsViewModel: CategoryMealsViewModel
 
     lateinit var categoryMealsAdapter: CategoryMealsAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

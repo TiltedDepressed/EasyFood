@@ -1,9 +1,8 @@
 package com.example.easyfood.retrofit
 
-import com.example.easyfood.pojo.CategoryList
-import com.example.easyfood.pojo.MealsByCategoryList
-import com.example.easyfood.pojo.MealList
-import com.example.easyfood.pojo.MealsByCategory
+import com.example.easyfood.model.CategoryList
+import com.example.easyfood.model.MealsByCategoryList
+import com.example.easyfood.model.MealList
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

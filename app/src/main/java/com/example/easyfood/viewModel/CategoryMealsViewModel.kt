@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.easyfood.pojo.MealsByCategory
-import com.example.easyfood.pojo.MealsByCategoryList
+import com.example.easyfood.model.MealsByCategory
+import com.example.easyfood.model.MealsByCategoryList
 import com.example.easyfood.retrofit.RetrofitInstance
 import retrofit2.Call
 import retrofit2.Callback

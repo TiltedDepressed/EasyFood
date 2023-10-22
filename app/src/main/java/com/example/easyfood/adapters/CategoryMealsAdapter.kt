@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.easyfood.databinding.MealItemBinding
-import com.example.easyfood.pojo.MealsByCategory
+import com.example.easyfood.model.MealsByCategory
 
 class CategoryMealsAdapter : RecyclerView.Adapter<CategoryMealsAdapter.CategoryMealsViewModel>() {
     private var mealsList = ArrayList<MealsByCategory>()
