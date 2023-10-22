@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -43,10 +44,19 @@ class MealActivity : AppCompatActivity() {
         mealMvvm.getMealDetail(mealId)
         observeMealDetailsLiveData()
         onYouTubeImageClick()
+        onFavoriteClick()
 
 
     }
 
+    private fun onFavoriteClick() {
+        binding.addToFavoritesButton.setOnClickListener{
+            mealToSave?.let {
+                mealMvvm.insertMeal(it)
+                Toast.makeText(this, "Meal saved", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
 
     private fun onYouTubeImageClick() {
